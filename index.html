@@ -4,187 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>射箭吧 - 专业射箭社区</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: #667eea;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            background: #5568d3;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #667eea;
+        }
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #5568d3;
+            font-size: 1.5em;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h2 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.5em;
+        }
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        ul {
+            list-style-position: inside;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        .emoji {
+            font-size: 3em;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1>🏹 射箭吧</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">首页</a></li>
-                    <li><a href="#about">关于射箭</a></li>
-                    <li><a href="#courses">课程</a></li>
-                    <li><a href="#equipment">装备</a></li>
-                    <li><a href="#community">社区</a></li>
-                    <li><a href="#contact">联系我们</a></li>
-                </ul>
-            </div>
-        </nav>
+        <h1>🏹 射箭吧</h1>
+        <p>专业射箭社区</p>
     </header>
 
-    <main>
-        <!-- 首页轮播 -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>欢迎来到射箭吧</h2>
-                <p>体验传统与现代结合的射箭艺术</p>
-                <button class="cta-button">立即开始</button>
-            </div>
-        </section>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#about">关于射箭</a>
+        <a href="#courses">课程</a>
+        <a href="#equipment">装备</a>
+        <a href="#community">社区</a>
+        <a href="#contact">联系我们</a>
+    </nav>
 
-        <!-- 关于射箭 -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2>关于射箭</h2>
-                <div class="about-content">
-                    <div class="about-card">
-                        <h3>历史传承</h3>
-                        <p>射箭是一项拥有数千年历史的传统运动，既是武术技能，也是修身养性的方式。</p>
-                    </div>
-                    <div class="about-card">
-                        <h3>现代竞技</h3>
-                        <p>现代射箭已发展成为奥运会正式比赛项目，融合了科技与传统技艺。</p>
-                    </div>
-                    <div class="about-card">
-                        <h3>身心锻炼</h3>
-                        <p>射箭能够培养专注力、稳定性和自律精神，是绝佳的身心锻炼方式。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="hero" id="home">
+        <h2>欢迎来到射箭吧</h2>
+        <p>体验传统与现代结合的射箭艺术</p>
+    </div>
 
-        <!-- 课程介绍 -->
-        <section id="courses" class="courses">
-            <div class="container">
-                <h2>课程设置</h2>
-                <div class="course-grid">
-                    <div class="course-card">
-                        <h3>初级课程</h3>
-                        <p>适合零基础学员</p>
-                        <ul>
-                            <li>基础姿势训练</li>
-                            <li>安全规范学习</li>
-                            <li>基础射击技巧</li>
-                        </ul>
-                        <button class="enroll-btn">报名</button>
-                    </div>
-                    <div class="course-card">
-                        <h3>中级课程</h3>
-                        <p>提升射击精准度</p>
-                        <ul>
-                            <li>进阶技巧训练</li>
-                            <li>距离射击练习</li>
-                            <li>心理素质培养</li>
-                        </ul>
-                        <button class="enroll-btn">报名</button>
-                    </div>
-                    <div class="course-card">
-                        <h3>高级课程</h3>
-                        <p>专业竞技训练</p>
-                        <ul>
-                            <li>竞赛规则详解</li>
-                            <li>高难度技巧</li>
-                            <li>比赛实战模拟</li>
-                        </ul>
-                        <button class="enroll-btn">报名</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 装备展示 -->
-        <section id="equipment" class="equipment">
-            <div class="container">
-                <h2>专业装备</h2>
-                <div class="equipment-grid">
-                    <div class="equipment-card">
-                        <div class="equipment-image">🏹</div>
-                        <h3>反曲弓</h3>
-                        <p>奥运标准竞技弓，适合专业训练和比赛</p>
-                    </div>
-                    <div class="equipment-card">
-                        <div class="equipment-image">🎯</div>
-                        <h3>复合弓</h3>
-                        <p>现代科技弓种，精准度高，适合各级别选手</p>
-                    </div>
-                    <div class="equipment-card">
-                        <div class="equipment-image">🪃</div>
-                        <h3>传统弓</h3>
-                        <p>古典弓种，体验传统射箭文化</p>
-                    </div>
-                    <div class="equipment-card">
-                        <div class="equipment-image">🛡️</div>
-                        <h3>护具配件</h3>
-                        <p>护臂、指套、箭袋等全套专业护具</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 社区交流 -->
-        <section id="community" class="community">
-            <div class="container">
-                <h2>社区动态</h2>
-                <div class="community-content">
-                    <div class="post-card">
-                        <h3>最新活动</h3>
-                        <p>2026年春季射箭比赛报名开始啦！</p>
-                        <span class="date">2026-01-05</span>
-                    </div>
-                    <div class="post-card">
-                        <h3>技术分享</h3>
-                        <p>如何提高射箭的稳定性 - 高级教练经验分享</p>
-                        <span class="date">2026-01-03</span>
-                    </div>
-                    <div class="post-card">
-                        <h3>装备推荐</h3>
-                        <p>2026年度最佳初学者弓箭推荐榜单</p>
-                        <span class="date">2026-01-01</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 联系我们 -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>联系我们</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>联系方式</h3>
-                        <p>📞 电话：400-123-4567</p>
-                        <p>📧 邮箱：info@archery-club.com</p>
-                        <p>📍 地址：北京市朝阳区射箭运动中心</p>
-                    </div>
-                    <div class="contact-form">
-                        <h3>在线咨询</h3>
-                        <form>
-                            <input type="text" placeholder="姓名" required>
-                            <input type="email" placeholder="邮箱" required>
-                            <input type="tel" placeholder="电话">
-                            <textarea placeholder="留言内容" rows="5" required></textarea>
-                            <button type="submit">提交</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <section id="about">
         <div class="container">
-            <p>&copy; 2026 射箭吧. 保留所有权利.</p>
-            <div class="social-links">
-                <a href="#">微信</a>
-                <a href="#">微博</a>
-                <a href="#">抖音</a>
+            <h2>关于射箭</h2>
+            
+            <div class="card">
+                <h3>历史传承</h3>
+                <p>射箭是一项拥有数千年历史的传统运动，既是武术技能，也是修身养性的方式。</p>
+            </div>
+
+            <div class="card">
+                <h3>现代竞技</h3>
+                <p>现代射箭已发展成为奥运会正式比赛项目，融合了科技与传统技艺。</p>
+            </div>
+
+            <div class="card">
+                <h3>身心锻炼</h3>
+                <p>射箭能够培养专注力、稳定性和自律精神，是绝佳的身心锻炼方式。</p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="js/script.js"></script>
+    <section id="courses">
+        <div class="container">
+            <h2>课程设置</h2>
+            
+            <div class="card">
+                <h3>初级课程</h3>
+                <p><strong>适合零基础学员</strong></p>
+                <ul>
+                    <li>基础姿势训练</li>
+                    <li>安全规范学习</li>
+                    <li>基础射击技巧</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>中级课程</h3>
+                <p><strong>提升射击精准度</strong></p>
+                <ul>
+                    <li>进阶技巧训练</li>
+                    <li>距离射击练习</li>
+                    <li>心理素质培养</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>高级课程</h3>
+                <p><strong>专业竞技训练</strong></p>
+                <ul>
+                    <li>竞赛规则详解</li>
+                    <li>高难度技巧</li>
+                    <li>比赛实战模拟</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment">
+        <div class="container">
+            <h2>专业装备</h2>
+            
+            <div class="card">
+                <span class="emoji">🏹</span>
+                <h3>反曲弓</h3>
+                <p>奥运标准竞技弓，适合专业训练和比赛</p>
+            </div>
+
+            <div class="card">
+                <span class="emoji">🎯</span>
+                <h3>复合弓</h3>
+                <p>现代科技弓种，精准度高，适合各级别选手</p>
+            </div>
+
+            <div class="card">
+                <span class="emoji">🪃</span>
+                <h3>传统弓</h3>
+                <p>古典弓种，体验传统射箭文化</p>
+            </div>
+
+            <div class="card">
+                <span class="emoji">🛡️</span>
+                <h3>护具配件</h3>
+                <p>护臂、指套、箭袋等全套专业护具</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <h2>社区动态</h2>
+            
+            <div class="card">
+                <h3>最新活动</h3>
+                <p>2026年春季射箭比赛报名开始啦！</p>
+                <p><small>发布时间：2026-01-05</small></p>
+            </div>
+
+            <div class="card">
+                <h3>技术分享</h3>
+                <p>如何提高射箭的稳定性 - 高级教练经验分享</p>
+                <p><small>发布时间：2026-01-03</small></p>
+            </div>
+
+            <div class="card">
+                <h3>装备推荐</h3>
+                <p>2026年度最佳初学者弓箭推荐榜单</p>
+                <p><small>发布时间：2026-01-01</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>联系我们</h2>
+            
+            <div class="card">
+                <h3>联系方式</h3>
+                <p>📞 电话：400-123-4567</p>
+                <p>📧 邮箱：info@archery-club.com</p>
+                <p>📍 地址：北京市朝阳区射箭运动中心</p>
+            </div>
+
+            <div class="card">
+                <h3>在线咨询</h3>
+                <form>
+                    <p><input type="text" placeholder="姓名" style="width: 100%; padding: 8px; margin: 5px 0;" required></p>
+                    <p><input type="email" placeholder="邮箱" style="width: 100%; padding: 8px; margin: 5px 0;" required></p>
+                    <p><input type="tel" placeholder="电话" style="width: 100%; padding: 8px; margin: 5px 0;"></p>
+                    <p><textarea placeholder="留言内容" rows="5" style="width: 100%; padding: 8px; margin: 5px 0;" required></textarea></p>
+                    <p><button type="submit" style="background: #667eea; color: white; padding: 10px 30px; border: none; border-radius: 5px; cursor: pointer;">提交</button></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 射箭吧. 保留所有权利.</p>
+        <p>
+            <a href="#" style="color: white; margin: 0 10px;">微信</a>
+            <a href="#" style="color: white; margin: 0 10px;">微博</a>
+            <a href="#" style="color: white; margin: 0 10px;">抖音</a>
+        </p>
+    </footer>
 </body>
 </html>
