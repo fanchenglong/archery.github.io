@@ -164,6 +164,16 @@ body {
   color: var(--color-text);
   text-decoration: none;
   transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-brand .brand-logo {
+  height: 40px;
+  width: auto;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
 }
 
 .nav-brand a:hover {
@@ -226,6 +236,27 @@ body {
   text-align: center;
   padding: 0;
   margin-bottom: var(--space-6);
+}
+
+.hero-logo {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.hero-logo-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.hero-logo-img:hover {
+  box-shadow: 0 0 30px var(--color-accent-glow);
+  border-color: var(--color-accent);
+  transform: scale(1.05);
 }
 
 .hero-header {
@@ -519,6 +550,34 @@ body {
   border-left: 3px solid var(--color-secondary);
   border-radius: var(--radius-sm);
   margin-top: var(--space-4);
+}
+
+.equipment-qrcode {
+  text-align: center;
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.equipment-qrcode .qrcode-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-accent);
+  transition: all var(--transition-base);
+}
+
+.equipment-qrcode .qrcode-img:hover {
+  box-shadow: 0 0 20px var(--color-accent-glow);
+  transform: scale(1.05);
+}
+
+.equipment-qrcode .qrcode-text {
+  margin-top: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
 }
 
 .detail-card ul {
