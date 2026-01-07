@@ -86,6 +86,12 @@ document.querySelector('.btn-primary')?.addEventListener('click', () => {
     observer.observe(card);
   });
 
+  // 观察Hero背景区域
+  const heroHeader = document.querySelector('.hero-header');
+  if (heroHeader) {
+    observer.observe(heroHeader);
+  }
+
   // 观察器材调试详情卡片
   document.querySelectorAll('.detail-card').forEach(card => {
     observer.observe(card);
