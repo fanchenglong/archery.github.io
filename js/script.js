@@ -26,13 +26,28 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
-    if (href !== '#' && href !== '#home') {
+    if (href !== '#') {
       e.preventDefault();
+      
+      // 处理首页链接
+      if (href === '#home') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        return;
+      }
+      
       const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // 获取header高度作为偏移量
+        const header = document.querySelector('.header');
+        const headerHeight = header ? header.offsetHeight : 70;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
         });
       }
     }
