@@ -326,11 +326,14 @@ body {
   display: grid;
   gap: var(--space-4);
   grid-template-columns: 1fr;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .service-cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 100%;
   }
 }
 
