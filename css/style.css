@@ -245,9 +245,9 @@ body {
 }
 
 .hero-header.in-view {
-  box-shadow: var(--shadow-glow-strong);
-  border-color: var(--color-accent);
-  animation: pulse-glow 2s ease-in-out;
+  box-shadow: 0 0 40px rgba(255, 100, 50, 0.6), 0 0 80px rgba(255, 100, 50, 0.4);
+  border-color: #ff6432;
+  animation: pulse-glow-hero 3s ease-in-out;
 }
 
 .hero-header::before {
@@ -356,6 +356,17 @@ body {
   }
   50% {
     box-shadow: 0 0 40px var(--color-accent-glow), 0 0 80px var(--color-accent-glow);
+  }
+}
+
+@keyframes pulse-glow-hero {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(255, 100, 50, 0.6), 0 0 80px rgba(255, 100, 50, 0.4);
+    border-color: #ff6432;
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 100, 50, 0.8), 0 0 120px rgba(255, 100, 50, 0.6), 0 0 180px rgba(255, 100, 50, 0.3);
+    border-color: #ff8855;
   }
 }
 
