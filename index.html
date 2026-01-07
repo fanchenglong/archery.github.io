@@ -3,256 +3,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>射箭吧 - 专业射箭社区</title>
+    <title>射箭吧 - 中国专业射箭协会</title>
     <style>
-        body {
-            font-family: Arial, 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fff;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
+        /* Header & Navigation */
         header {
-            background: #667eea;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+            background: #1a1a1a;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav {
-            background: #5568d3;
+        .header-top {
+            background: #000;
             padding: 10px 0;
             text-align: center;
+            color: #d4af37;
+            font-size: 0.85em;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .logo-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            color: #d4af37;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav {
+            display: flex;
+            gap: 30px;
         }
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
-            display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s;
         }
         nav a:hover {
-            background: #667eea;
+            color: #d4af37;
         }
-        section {
-            padding: 40px 0;
-            border-bottom: 1px solid #eee;
-        }
-        h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        h3 {
-            color: #5568d3;
-            font-size: 1.5em;
-        }
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23222" width="1200" height="600"/><circle fill="%23333" cx="600" cy="300" r="200"/></svg>');
+            background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 120px 20px;
         }
-        .hero h2 {
-            color: white;
-            font-size: 3em;
-            margin-bottom: 10px;
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
-        .hero p {
-            font-size: 1.5em;
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: #d4af37;
         }
-        .card {
-            background: #f8f9fa;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+        .cta-button {
+            display: inline-block;
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
         }
-        ul {
-            list-style-position: inside;
+        .cta-button:hover {
+            background: #b8941f;
         }
-        footer {
-            background: #333;
-            color: white;
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 2.5em;
             text-align: center;
-            padding: 20px 0;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+            border-bottom: 3px solid #d4af37;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
-        .emoji {
-            font-size: 3em;
-            display: block;
-            margin: 10px 0;
+        .card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .card-date {
+            background: #d4af37;
+            color: #000;
+            display: inline-block;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .card-text {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+        }
+        /* Features */
+        .features {
+            background: #f8f9fa;
+        }
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+        }
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        /* List Styles */
+        .course-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .course-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+        .course-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: #fff;
+            font-size: 1.5em;
+        }
+        /* Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+            font-size: 1em;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        @media (max-width: 768px) {
+            .logo-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero-title {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🏹 射箭吧</h1>
-        <p>专业射箭社区</p>
+        <div class="header-top">
+            全国 | 北京 | 上海 | 广州 | 深圳 | 成都 | 杭州 | 西安
+        </div>
+        <div class="container">
+            <div class="logo-nav">
+                <a href="#" class="logo">🏹 射箭吧</a>
+                <nav>
+                    <a href="#events">赛事活动</a>
+                    <a href="#about">关于我们</a>
+                    <a href="#membership">会员服务</a>
+                    <a href="#training">培训课程</a>
+                    <a href="#news">新闻资讯</a>
+                    <a href="#contact">联系我们</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <nav>
-        <a href="#home">首页</a>
-        <a href="#about">关于射箭</a>
-        <a href="#courses">课程</a>
-        <a href="#equipment">装备</a>
-        <a href="#community">社区</a>
-        <a href="#contact">联系我们</a>
-    </nav>
-
-    <div class="hero" id="home">
-        <h2>欢迎来到射箭吧</h2>
-        <p>体验传统与现代结合的射箭艺术</p>
+    <div class="hero">
+        <div class="container">
+            <h1 class="hero-title">中国专业射箭协会</h1>
+            <p class="hero-subtitle">传承千年射艺 · 铸就现代冠军</p>
+            <a href="#membership" class="cta-button">立即加入</a>
+        </div>
     </div>
 
-    <section id="about">
+    <section id="events">
         <div class="container">
-            <h2>关于射箭</h2>
-            
-            <div class="card">
-                <h3>历史传承</h3>
-                <p>射箭是一项拥有数千年历史的传统运动，既是武术技能，也是修身养性的方式。</p>
+            <div class="section-header">
+                <h2 class="section-title">全国锦标赛</h2>
             </div>
-
-            <div class="card">
-                <h3>现代竞技</h3>
-                <p>现代射箭已发展成为奥运会正式比赛项目，融合了科技与传统技艺。</p>
-            </div>
-
-            <div class="card">
-                <h3>身心锻炼</h3>
-                <p>射箭能够培养专注力、稳定性和自律精神，是绝佳的身心锻炼方式。</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-date">2026年1月</div>
+                    <h3 class="card-title">2026 全国室内射箭锦标赛</h3>
+                    <p class="card-text">全国八大赛区同步开赛，角逐全国室内射箭冠军。报名已全面开启！</p>
+                    <a href="#" class="read-more">了解更多 →</a>
+                </div>
+                <div class="card">
+                    <div class="card-date">2026年2月</div>
+                    <h3 class="card-title">春季全国射箭联赛</h3>
+                    <p class="card-text">为期12周的全国联赛，各地射箭俱乐部均可报名参加，角逐年度总冠军。</p>
+                    <a href="#" class="read-more">了解更多 →</a>
+                </div>
+                <div class="card">
+                    <div class="card-date">2026年3月</div>
+                    <h3 class="card-title">青少年射箭挑战赛</h3>
+                    <p class="card-text">面向全国青少年射箭爱好者，培养新一代射箭运动员。</p>
+                    <a href="#" class="read-more">了解更多 →</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="courses">
+    <section id="about" class="features">
         <div class="container">
-            <h2>课程设置</h2>
-            
-            <div class="card">
-                <h3>初级课程</h3>
-                <p><strong>适合零基础学员</strong></p>
-                <ul>
-                    <li>基础姿势训练</li>
-                    <li>安全规范学习</li>
-                    <li>基础射击技巧</li>
-                </ul>
+            <div class="section-header">
+                <h2 class="section-title">关于射箭运动</h2>
             </div>
-
-            <div class="card">
-                <h3>中级课程</h3>
-                <p><strong>提升射击精准度</strong></p>
-                <ul>
-                    <li>进阶技巧训练</li>
-                    <li>距离射击练习</li>
-                    <li>心理素质培养</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>高级课程</h3>
-                <p><strong>专业竞技训练</strong></p>
-                <ul>
-                    <li>竞赛规则详解</li>
-                    <li>高难度技巧</li>
-                    <li>比赛实战模拟</li>
-                </ul>
+            <div class="card-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">历史传承</h3>
+                    <p>射箭运动拥有数千年历史，是中华传统文化的重要组成部分，体现了精准、专注与修养的完美结合。</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">奥运项目</h3>
+                    <p>现代射箭是奥运会正式比赛项目，代表着世界最高水平的竞技体育，融合传统与科技。</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">💪</div>
+                    <h3 class="feature-title">身心锻炼</h3>
+                    <p>射箭运动能够全面提升专注力、稳定性和心理素质，是现代人修身养性的绝佳选择。</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="equipment">
+    <section id="training">
         <div class="container">
-            <h2>专业装备</h2>
-            
-            <div class="card">
-                <span class="emoji">🏹</span>
-                <h3>反曲弓</h3>
-                <p>奥运标准竞技弓，适合专业训练和比赛</p>
+            <div class="section-header">
+                <h2 class="section-title">专业培训课程</h2>
             </div>
-
-            <div class="card">
-                <span class="emoji">🎯</span>
-                <h3>复合弓</h3>
-                <p>现代科技弓种，精准度高，适合各级别选手</p>
-            </div>
-
-            <div class="card">
-                <span class="emoji">🪃</span>
-                <h3>传统弓</h3>
-                <p>古典弓种，体验传统射箭文化</p>
-            </div>
-
-            <div class="card">
-                <span class="emoji">🛡️</span>
-                <h3>护具配件</h3>
-                <p>护臂、指套、箭袋等全套专业护具</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">初级课程</h3>
+                    <p class="card-text"><strong>适合零基础学员</strong></p>
+                    <ul class="course-list">
+                        <li>基础姿势与站位训练</li>
+                        <li>射箭安全规范学习</li>
+                        <li>基本射击技巧掌握</li>
+                        <li>器材使用与维护</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">中级课程</h3>
+                    <p class="card-text"><strong>提升射击精准度</strong></p>
+                    <ul class="course-list">
+                        <li>进阶技巧强化训练</li>
+                        <li>不同距离射击练习</li>
+                        <li>心理素质专项培养</li>
+                        <li>比赛策略与战术</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">高级课程</h3>
+                    <p class="card-text"><strong>专业竞技训练</strong></p>
+                    <ul class="course-list">
+                        <li>竞赛规则全面详解</li>
+                        <li>高难度技巧突破</li>
+                        <li>实战比赛模拟训练</li>
+                        <li>个性化技术指导</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="community">
+    <section id="news">
         <div class="container">
-            <h2>社区动态</h2>
-            
-            <div class="card">
-                <h3>最新活动</h3>
-                <p>2026年春季射箭比赛报名开始啦！</p>
-                <p><small>发布时间：2026-01-05</small></p>
+            <div class="section-header">
+                <h2 class="section-title">最新资讯</h2>
             </div>
-
-            <div class="card">
-                <h3>技术分享</h3>
-                <p>如何提高射箭的稳定性 - 高级教练经验分享</p>
-                <p><small>发布时间：2026-01-03</small></p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-date">1月6日</div>
+                    <h3 class="card-title">2026年度射手评选计划启动</h3>
+                    <p class="card-text">全新升级的年度射手评选计划正式启动，将覆盖更多赛事、扩展更多类别，表彰各类射箭风格的优秀运动员。</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </div>
+                <div class="card">
+                    <div class="card-date">1月3日</div>
+                    <h3 class="card-title">全国射箭锦标赛圆满落幕</h3>
+                    <p class="card-text">2025年全国射箭锦标赛于上周末成功举办，来自全国各地的顶尖选手齐聚一堂，展现了精彩的竞技水平。</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </div>
+                <div class="card">
+                    <div class="card-date">12月28日</div>
+                    <h3 class="card-title">大学生射箭联赛首届冠军诞生</h3>
+                    <p class="card-text">首届全国大学生射箭联赛经过4周激烈角逐，最终冠军球队脱颖而出，为大学生射箭运动树立了新的标杆。</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="card">
-                <h3>装备推荐</h3>
-                <p>2026年度最佳初学者弓箭推荐榜单</p>
-                <p><small>发布时间：2026-01-01</small></p>
+    <section id="membership" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">加入全国最大的射箭组织</h2>
+                <p style="text-align: center; font-size: 1.2em; color: #666; margin-top: 20px;">
+                    成为会员，享受专业培训、参加全国赛事、获取专属装备折扣
+                </p>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="cta-button">了解会员权益</a>
             </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
-            <h2>联系我们</h2>
-            
-            <div class="card">
-                <h3>联系方式</h3>
-                <p>📞 电话：400-123-4567</p>
-                <p>📧 邮箱：info@archery-club.com</p>
-                <p>📍 地址：北京市朝阳区射箭运动中心</p>
+            <div class="section-header">
+                <h2 class="section-title">联系我们</h2>
             </div>
-
-            <div class="card">
-                <h3>在线咨询</h3>
-                <form>
-                    <p><input type="text" placeholder="姓名" style="width: 100%; padding: 8px; margin: 5px 0;" required></p>
-                    <p><input type="email" placeholder="邮箱" style="width: 100%; padding: 8px; margin: 5px 0;" required></p>
-                    <p><input type="tel" placeholder="电话" style="width: 100%; padding: 8px; margin: 5px 0;"></p>
-                    <p><textarea placeholder="留言内容" rows="5" style="width: 100%; padding: 8px; margin: 5px 0;" required></textarea></p>
-                    <p><button type="submit" style="background: #667eea; color: white; padding: 10px 30px; border: none; border-radius: 5px; cursor: pointer;">提交</button></p>
-                </form>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                <div>
+                    <h3 style="margin-bottom: 20px;">联系方式</h3>
+                    <p style="margin-bottom: 15px;">📍 北京市朝阳区射箭运动中心</p>
+                    <p style="margin-bottom: 15px;">📞 全国服务热线：400-123-4567</p>
+                    <p style="margin-bottom: 15px;">📧 电子邮箱：info@archery-club.com</p>
+                    <p style="margin-bottom: 15px;">⏰ 工作时间：周一至周日 9:00-18:00</p>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px;">在线咨询</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="电子邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="联系电话">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="留言内容" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">提交咨询</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 射箭吧. 保留所有权利.</p>
-        <p>
-            <a href="#" style="color: white; margin: 0 10px;">微信</a>
-            <a href="#" style="color: white; margin: 0 10px;">微博</a>
-            <a href="#" style="color: white; margin: 0 10px;">抖音</a>
-        </p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>赛事活动</h3>
+                    <ul>
+                        <li><a href="#">查找赛事</a></li>
+                        <li><a href="#">全国锦标赛</a></li>
+                        <li><a href="#">竞赛规则</a></li>
+                        <li><a href="#">成绩与纪录</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">协会简介</a></li>
+                        <li><a href="#">组织架构</a></li>
+                        <li><a href="#">发展历史</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>会员服务</h3>
+                    <ul>
+                        <li><a href="#">成为会员</a></li>
+                        <li><a href="#">俱乐部注册</a></li>
+                        <li><a href="#">会员权益</a></li>
+                        <li><a href="#">会费计算</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>参与互动</h3>
+                    <ul>
+                        <li><a href="#">新手指南</a></li>
+                        <li><a href="#">射箭项目</a></li>
+                        <li><a href="#">奖项计划</a></li>
+                        <li><a href="#">查找俱乐部</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#">📘</a>
+                <a href="#">📷</a>
+                <a href="#">📺</a>
+                <a href="#">🐦</a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 射箭吧 - 中国专业射箭协会. 保留所有权利.</p>
+                <p style="margin-top: 10px;">
+                    <a href="#" style="color: #999; margin: 0 10px;">隐私政策</a> | 
+                    <a href="#" style="color: #999; margin: 0 10px;">使用条款</a>
+                </p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
