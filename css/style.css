@@ -543,69 +543,155 @@ body {
    图片画廊
    ========================================== */
 
+/* ==========================================
+   场馆环境画廊
+   ========================================== */
+
 .gallery {
   margin-bottom: var(--space-8);
 }
 
 .gallery h2 {
   font-size: var(--font-size-2xl);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   text-align: center;
   color: var(--color-text);
 }
 
-.gallery-grid {
-  display: grid;
-  gap: var(--space-2);
-  grid-template-columns: repeat(2, 1fr);
+.gallery-section {
+  margin-bottom: var(--space-8);
 }
 
-@media (min-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3);
-  }
-}
-
-.gallery-item {
-  position: relative;
-  aspect-ratio: 4/3;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background-color: var(--color-background-alt);
-}
-
-/* 图片占位符样式 */
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-  border: 2px dashed var(--color-border-dark);
-  transition: transform var(--transition-base),
-              border-color var(--transition-base),
-              box-shadow var(--transition-base);
-}
-
-[data-theme="light"] .image-placeholder {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
-.gallery-item:hover .image-placeholder {
-  transform: scale(1.05);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-glow);
-}
-
-.placeholder-text {
+.gallery-section h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-4);
+  color: var(--color-accent);
   text-align: center;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-  line-height: 1.6;
-  padding: var(--space-2);
-  font-weight: var(--font-weight-medium);
+}
+
+.gallery-slider-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.gallery-slider {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-background-alt);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.slider-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-caption {
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.7) 100%);
+  color: var(--color-text);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 212, 255, 0.2);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.slider-btn:hover {
+  background: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 20px var(--color-accent-glow);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.slider-btn.prev {
+  left: 0;
+}
+
+.slider-btn.next {
+  right: 0;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-border-dark);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.slider-dot:hover {
+  background: var(--color-accent);
+  transform: scale(1.2);
+}
+
+.slider-dot.active {
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+@media (max-width: 767px) {
+  .gallery-slider-wrapper {
+    padding: 0 var(--space-4);
+  }
+  
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+  
+  .slide-caption {
+    font-size: var(--font-size-sm);
+    padding: var(--space-2) var(--space-3);
+  }
 }
 
 /* 实际图片样式（替换占位符时使用） */

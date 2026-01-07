@@ -102,3 +102,113 @@ document.querySelector('.btn-primary')?.addEventListener('click', () => {
     observer.observe(card);
   });
 })();
+
+// 图片轮播功能
+(function() {
+  class GallerySlider {
+    constructor(sliderElement) {
+      this.slider = sliderElement;
+      this.track = this.slider.querySelector('.slider-track');
+      this.items = this.slider.querySelectorAll('.slider-item');
+      this.wrapper = this.slider.closest('.gallery-slider-wrapper');
+      this.prevBtn = this.wrapper.querySelector('.prev');
+      this.nextBtn = this.wrapper.querySelector('.next');
+      this.currentIndex = 0;
+      this.galleryType = this.slider.dataset.gallery;
+      
+      this.init();
+    }
+    
+    init() {
+      // 创建指示点
+      this.createDots();
+      
+      // 绑定按钮事件
+      this.prevBtn.addEventListener('click', () => this.prev());
+      this.nextBtn.addEventListener('click', () => this.next());
+      
+      // 触摸滑动支持
+      this.addTouchSupport();
+      
+      // 自动播放（可选）
+      // this.startAutoPlay();
+    }
+    
+    createDots() {
+      const dotsContainer = document.querySelector(`[data-dots="${this.galleryType}"]`);
+      if (!dotsContainer) return;
+      
+      this.items.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `跳转到第${index + 1}张`);
+        dot.addEventListener('click', () => this.goTo(index));
+        dotsContainer.appendChild(dot);
+      });
+      
+      this.dots = dotsContainer.querySelectorAll('.slider-dot');
+    }
+    
+    updateDots() {
+      this.dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === this.currentIndex);
+      });
+    }
+    
+    goTo(index) {
+      this.currentIndex = index;
+      const offset = -100 * index;
+      this.track.style.transform = `translateX(${offset}%)`;
+      this.updateDots();
+    }
+    
+    next() {
+      this.currentIndex = (this.currentIndex + 1) % this.items.length;
+      this.goTo(this.currentIndex);
+    }
+    
+    prev() {
+      this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+      this.goTo(this.currentIndex);
+    }
+    
+    addTouchSupport() {
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      
+      this.slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      });
+      
+      this.slider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+      });
+      
+      this.slider.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const diff = startX - currentX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            this.next();
+          } else {
+            this.prev();
+          }
+        }
+      });
+    }
+    
+    startAutoPlay(interval = 5000) {
+      setInterval(() => this.next(), interval);
+    }
+  }
+  
+  // 初始化所有轮播
+  document.querySelectorAll('.gallery-slider').forEach(slider => {
+    new GallerySlider(slider);
+  });
+})();
