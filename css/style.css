@@ -816,17 +816,17 @@ body {
 }
 
 .contact-info .phone-number {
-  color: var(--color-accent);
+  color: #00ff9f;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.5px;
-  text-shadow: 0 0 10px var(--color-accent-glow);
+  text-shadow: 0 0 10px rgba(0, 255, 159, 0.5);
   transition: all var(--transition-base);
 }
 
 .contact-card:hover .phone-number {
-  color: var(--color-accent-hover);
-  text-shadow: 0 0 15px var(--color-accent-glow), 0 0 30px var(--color-accent-glow);
+  color: #00ffcc;
+  text-shadow: 0 0 15px rgba(0, 255, 159, 0.7), 0 0 30px rgba(0, 255, 159, 0.5);
   transform: scale(1.05);
   display: inline-block;
 }
