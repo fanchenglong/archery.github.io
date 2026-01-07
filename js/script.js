@@ -58,3 +58,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.querySelector('.btn-primary')?.addEventListener('click', () => {
   alert('请通过以下方式联系我们预约体验：\n\n旺角广场店：13683636747\n万科时代中心店：13581677270');
 });
+
+// 卡片滚动进入视口时发光效果
+(function() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '-10% 0px -10% 0px', // 当卡片进入视口中间区域时触发
+    threshold: 0.3 // 至少30%可见时触发
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 卡片进入视口，添加发光效果
+        entry.target.classList.add('in-view');
+        
+        // 2秒后移除类，以便下次滚动时可以再次触发
+        setTimeout(() => {
+          entry.target.classList.remove('in-view');
+        }, 2000);
+      }
+    });
+  }, observerOptions);
+
+  // 观察所有服务卡片
+  document.querySelectorAll('.service-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // 观察其他可能需要发光效果的卡片
+  document.querySelectorAll('.contact-card').forEach(card => {
+    observer.observe(card);
+  });
+})();

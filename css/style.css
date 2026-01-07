@@ -334,6 +334,21 @@ body {
               border-color var(--transition-base);
 }
 
+.service-card.in-view {
+  box-shadow: var(--shadow-glow-strong);
+  border-color: var(--color-accent);
+  animation: pulse-glow 2s ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: var(--shadow-glow-strong);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--color-accent-glow), 0 0 80px var(--color-accent-glow);
+  }
+}
+
 .service-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-glow-strong);
@@ -579,6 +594,12 @@ body {
   transition: transform var(--transition-base),
               box-shadow var(--transition-base),
               border-color var(--transition-base);
+}
+
+.contact-card.in-view {
+  box-shadow: var(--shadow-glow-strong);
+  border-color: var(--color-accent);
+  animation: pulse-glow 2s ease-in-out;
 }
 
 .contact-card:hover {
