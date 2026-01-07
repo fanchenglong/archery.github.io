@@ -547,17 +547,6 @@ body {
    场馆环境画廊
    ========================================== */
 
-.gallery {
-  margin-bottom: var(--space-8);
-}
-
-.gallery h2 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--space-6);
-  text-align: center;
-  color: var(--color-text);
-}
-
 .gallery-section {
   margin-bottom: var(--space-8);
 }
@@ -571,13 +560,18 @@ body {
 
 .gallery-slider-wrapper {
   position: relative;
-  margin: 0 auto;
+  margin: 0 calc(-1 * var(--space-3));
   padding: 0;
+}
+
+@media (min-width: 768px) {
+  .gallery-slider-wrapper {
+    margin: 0 calc(-1 * var(--space-4));
+  }
 }
 
 .gallery-slider {
   overflow: hidden;
-  border-radius: var(--radius-lg);
   background: var(--color-background-alt);
   width: 100%;
 }
@@ -614,52 +608,6 @@ body {
   margin: 0;
 }
 
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 212, 255, 0.2);
-  border: 1px solid var(--color-accent);
-  color: var(--color-accent);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  font-size: 32px;
-  line-height: 1;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  z-index: 10;
-  backdrop-filter: blur(10px);
-}
-
-.slider-btn:hover {
-  background: rgba(0, 212, 255, 0.4);
-  box-shadow: 0 0 20px var(--color-accent-glow);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.slider-btn:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
-.slider-btn.prev {
-  left: var(--space-3);
-}
-
-.slider-btn.next {
-  right: var(--space-3);
-}
-
-@media (min-width: 768px) {
-  .slider-btn.prev {
-    left: var(--space-4);
-  }
-  
-  .slider-btn.next {
-    right: var(--space-4);
-  }
-}
-
 .slider-dots {
   display: flex;
   justify-content: center;
@@ -687,21 +635,15 @@ body {
   box-shadow: 0 0 10px var(--color-accent-glow);
 }
 
+/* 课程体系区域 */
+.course-info {
+  margin-bottom: var(--space-8);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 767px) {
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 28px;
-  }
-  
-  .slider-btn.prev {
-    left: var(--space-2);
-  }
-  
-  .slider-btn.next {
-    right: var(--space-2);
-  }
-  
   .slide-caption {
     font-size: var(--font-size-sm);
     padding: var(--space-2) var(--space-3);
