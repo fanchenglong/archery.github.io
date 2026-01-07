@@ -815,6 +815,22 @@ body {
   margin-top: calc(var(--space-1) * -1);
 }
 
+.contact-info .phone-number {
+  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px var(--color-accent-glow);
+  transition: all var(--transition-base);
+}
+
+.contact-card:hover .phone-number {
+  color: var(--color-accent-hover);
+  text-shadow: 0 0 15px var(--color-accent-glow), 0 0 30px var(--color-accent-glow);
+  transform: scale(1.05);
+  display: inline-block;
+}
+
 /* ==========================================
    按钮
    ========================================== */
