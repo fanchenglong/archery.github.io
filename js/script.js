@@ -111,8 +111,6 @@ document.querySelector('.btn-primary')?.addEventListener('click', () => {
       this.track = this.slider.querySelector('.slider-track');
       this.items = this.slider.querySelectorAll('.slider-item');
       this.wrapper = this.slider.closest('.gallery-slider-wrapper');
-      this.prevBtn = this.wrapper.querySelector('.prev');
-      this.nextBtn = this.wrapper.querySelector('.next');
       this.currentIndex = 0;
       this.galleryType = this.slider.dataset.gallery;
       
@@ -122,10 +120,6 @@ document.querySelector('.btn-primary')?.addEventListener('click', () => {
     init() {
       // 创建指示点
       this.createDots();
-      
-      // 绑定按钮事件
-      this.prevBtn.addEventListener('click', () => this.prev());
-      this.nextBtn.addEventListener('click', () => this.next());
       
       // 触摸滑动支持
       this.addTouchSupport();
