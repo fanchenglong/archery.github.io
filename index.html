@@ -1,543 +1,226 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>射箭吧 - 中国专业射箭协会</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #fff;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Header & Navigation */
-        header {
-            background: #1a1a1a;
-            border-bottom: 3px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-top {
-            background: #000;
-            padding: 10px 0;
-            text-align: center;
-            color: #d4af37;
-            font-size: 0.85em;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-        .logo-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        .logo {
-            color: #d4af37;
-            font-size: 1.8em;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #d4af37;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23222" width="1200" height="600"/><circle fill="%23333" cx="600" cy="300" r="200"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-        }
-        .hero-title {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        .hero-subtitle {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            color: #d4af37;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #d4af37;
-            color: #000;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .cta-button:hover {
-            background: #b8941f;
-        }
-        /* Section Styles */
-        section {
-            padding: 60px 0;
-        }
-        .section-title {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #1a1a1a;
-            border-bottom: 3px solid #d4af37;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        /* Card Grid */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            padding: 30px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .card-date {
-            background: #d4af37;
-            color: #000;
-            display: inline-block;
-            padding: 5px 15px;
-            font-weight: bold;
-            font-size: 0.85em;
-            margin-bottom: 15px;
-        }
-        .card-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-        .card-text {
-            color: #555;
-            margin-bottom: 15px;
-        }
-        .read-more {
-            color: #d4af37;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85em;
-        }
-        /* Features */
-        .features {
-            background: #f8f9fa;
-        }
-        .feature-box {
-            text-align: center;
-            padding: 30px;
-        }
-        .feature-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-        .feature-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-        /* List Styles */
-        .course-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .course-list li {
-            padding: 8px 0 8px 25px;
-            position: relative;
-        }
-        .course-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #d4af37;
-            font-weight: bold;
-        }
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 60px 0 20px;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-section h3 {
-            color: #d4af37;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .footer-section ul {
-            list-style: none;
-        }
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-section a:hover {
-            color: #d4af37;
-        }
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            text-align: center;
-            color: #999;
-            font-size: 0.9em;
-        }
-        .social-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .social-links a {
-            color: #fff;
-            font-size: 1.5em;
-        }
-        /* Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            font-family: inherit;
-            font-size: 1em;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #d4af37;
-        }
-        @media (max-width: 768px) {
-            .logo-nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            .hero-title {
-                font-size: 2em;
-            }
-        }
-    </style>
+    <meta name="description" content="射箭吧 - 北京望京专业射箭俱乐部，创立于2013年，双馆空间，30米标准箭道，国家级教练团队">
+    <meta name="keywords" content="射箭,射箭俱乐部,望京射箭,北京射箭,射箭培训,复合弓,反曲弓">
+    <title>射箭吧 🎯 北京望京专业射箭俱乐部</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-top">
-            全国 | 北京 | 上海 | 广州 | 深圳 | 成都 | 杭州 | 西安
-        </div>
-        <div class="container">
-            <div class="logo-nav">
-                <a href="#" class="logo">🏹 射箭吧</a>
-                <nav>
-                    <a href="#events">赛事活动</a>
-                    <a href="#about">关于我们</a>
-                    <a href="#membership">会员服务</a>
-                    <a href="#training">培训课程</a>
-                    <a href="#news">新闻资讯</a>
-                    <a href="#contact">联系我们</a>
-                </nav>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="#home">🎯 射箭吧</a>
             </div>
-        </div>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#courses">课程</a></li>
+                <li><a href="#equipment">器材</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                🌓
+            </button>
+        </nav>
     </header>
 
-    <div class="hero">
+    <!-- 主体内容 -->
+    <main class="main">
         <div class="container">
-            <h1 class="hero-title">中国专业射箭协会</h1>
-            <p class="hero-subtitle">传承千年射艺 · 铸就现代冠军</p>
-            <a href="#membership" class="cta-button">立即加入</a>
-        </div>
-    </div>
-
-    <section id="events">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">全国锦标赛</h2>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-date">2026年1月</div>
-                    <h3 class="card-title">2026 全国室内射箭锦标赛</h3>
-                    <p class="card-text">全国八大赛区同步开赛，角逐全国室内射箭冠军。报名已全面开启！</p>
-                    <a href="#" class="read-more">了解更多 →</a>
-                </div>
-                <div class="card">
-                    <div class="card-date">2026年2月</div>
-                    <h3 class="card-title">春季全国射箭联赛</h3>
-                    <p class="card-text">为期12周的全国联赛，各地射箭俱乐部均可报名参加，角逐年度总冠军。</p>
-                    <a href="#" class="read-more">了解更多 →</a>
-                </div>
-                <div class="card">
-                    <div class="card-date">2026年3月</div>
-                    <h3 class="card-title">青少年射箭挑战赛</h3>
-                    <p class="card-text">面向全国青少年射箭爱好者，培养新一代射箭运动员。</p>
-                    <a href="#" class="read-more">了解更多 →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">关于射箭运动</h2>
-            </div>
-            <div class="card-grid">
-                <div class="feature-box">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">历史传承</h3>
-                    <p>射箭运动拥有数千年历史，是中华传统文化的重要组成部分，体现了精准、专注与修养的完美结合。</p>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon">🏆</div>
-                    <h3 class="feature-title">奥运项目</h3>
-                    <p>现代射箭是奥运会正式比赛项目，代表着世界最高水平的竞技体育，融合传统与科技。</p>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon">💪</div>
-                    <h3 class="feature-title">身心锻炼</h3>
-                    <p>射箭运动能够全面提升专注力、稳定性和心理素质，是现代人修身养性的绝佳选择。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="training">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">专业培训课程</h2>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <h3 class="card-title">初级课程</h3>
-                    <p class="card-text"><strong>适合零基础学员</strong></p>
-                    <ul class="course-list">
-                        <li>基础姿势与站位训练</li>
-                        <li>射箭安全规范学习</li>
-                        <li>基本射击技巧掌握</li>
-                        <li>器材使用与维护</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">中级课程</h3>
-                    <p class="card-text"><strong>提升射击精准度</strong></p>
-                    <ul class="course-list">
-                        <li>进阶技巧强化训练</li>
-                        <li>不同距离射击练习</li>
-                        <li>心理素质专项培养</li>
-                        <li>比赛策略与战术</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 class="card-title">高级课程</h3>
-                    <p class="card-text"><strong>专业竞技训练</strong></p>
-                    <ul class="course-list">
-                        <li>竞赛规则全面详解</li>
-                        <li>高难度技巧突破</li>
-                        <li>实战比赛模拟训练</li>
-                        <li>个性化技术指导</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="news">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">最新资讯</h2>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-date">1月6日</div>
-                    <h3 class="card-title">2026年度射手评选计划启动</h3>
-                    <p class="card-text">全新升级的年度射手评选计划正式启动，将覆盖更多赛事、扩展更多类别，表彰各类射箭风格的优秀运动员。</p>
-                    <a href="#" class="read-more">阅读全文 →</a>
-                </div>
-                <div class="card">
-                    <div class="card-date">1月3日</div>
-                    <h3 class="card-title">全国射箭锦标赛圆满落幕</h3>
-                    <p class="card-text">2025年全国射箭锦标赛于上周末成功举办，来自全国各地的顶尖选手齐聚一堂，展现了精彩的竞技水平。</p>
-                    <a href="#" class="read-more">阅读全文 →</a>
-                </div>
-                <div class="card">
-                    <div class="card-date">12月28日</div>
-                    <h3 class="card-title">大学生射箭联赛首届冠军诞生</h3>
-                    <p class="card-text">首届全国大学生射箭联赛经过4周激烈角逐，最终冠军球队脱颖而出，为大学生射箭运动树立了新的标杆。</p>
-                    <a href="#" class="read-more">阅读全文 →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="membership" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">加入全国最大的射箭组织</h2>
-                <p style="text-align: center; font-size: 1.2em; color: #666; margin-top: 20px;">
-                    成为会员，享受专业培训、参加全国赛事、获取专属装备折扣
+            <!-- Hero 介绍区 -->
+            <section class="hero">
+                <h1>北京望京专业射箭俱乐部</h1>
+                <p class="subtitle">创立于2013年 · 双馆空间 · 30米标准箭道 · 国家级教练团队</p>
+                <p class="description">
+                    射箭吧是位于北京望京的专业射箭俱乐部，拥有双馆专业空间，旗舰馆配备标准的30米高级箭道。由国家级退役运动员与认证教练组成的专业团队，提供初级、中级、高级三级课程体系，已培养出大批国家一级运动员、国家级健将运动员。同时提供复合弓与反曲弓的专业销售及精准调试服务，是弓箭爱好者的一站式"弓箭之家"。
                 </p>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#" class="cta-button">了解会员权益</a>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">联系我们</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
-                <div>
-                    <h3 style="margin-bottom: 20px;">联系方式</h3>
-                    <p style="margin-bottom: 15px;">📍 北京市朝阳区射箭运动中心</p>
-                    <p style="margin-bottom: 15px;">📞 全国服务热线：400-123-4567</p>
-                    <p style="margin-bottom: 15px;">📧 电子邮箱：info@archery-club.com</p>
-                    <p style="margin-bottom: 15px;">⏰ 工作时间：周一至周日 9:00-18:00</p>
-                </div>
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 20px;">在线咨询</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="您的姓名" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="电子邮箱" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="联系电话">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="留言内容" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%;">提交咨询</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- 核心服务卡片 -->
+            <section class="services">
+                <div class="service-cards">
+                    <!-- 服务卡片 1 -->
+                    <article class="service-card">
+                        <h3>🏹 专业场馆</h3>
+                        <p>双馆运营，旗舰馆拥有标准30米箭道，配备先进设施和专业靶位，为射箭爱好者提供优质训练环境</p>
+                        <ul class="feature-list">
+                            <li>标准30米室内箭道</li>
+                            <li>双馆专业空间布局</li>
+                            <li>完善的安全防护设施</li>
+                            <li>舒适的休息区域</li>
+                        </ul>
+                    </article>
 
-    <footer>
+                    <!-- 服务卡片 2 -->
+                    <article class="service-card">
+                        <h3>📚 课程体系</h3>
+                        <p>由国家级退役运动员和认证教练组成的专业团队，提供从入门到精射的完整培训体系</p>
+                        <ul class="feature-list">
+                            <li><strong>初级课程</strong>：零基础入门，掌握基本动作要领</li>
+                            <li><strong>中级课程</strong>：技术提升，规范动作，提高稳定性</li>
+                            <li><strong>高级课程</strong>：竞技训练，已培养多名国家一级运动员和健将</li>
+                        </ul>
+                    </article>
+
+                    <!-- 服务卡片 3 -->
+                    <article class="service-card">
+                        <h3>🎯 专业器材调试</h3>
+                        <p>提供复合弓、反曲弓的专业销售和精准调试服务，配备专业调弓台、开弓器、箭速仪等设备</p>
+                        <ul class="feature-list">
+                            <li>复合弓与反曲弓销售</li>
+                            <li>全套配件供应</li>
+                            <li>专业器材调试服务</li>
+                            <li>个性化装备建议</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 器材调试详情区 -->
+            <section class="equipment-details" id="equipment">
+                <h2>专业器材调试服务</h2>
+                <p class="section-intro">配备专业调弓台、开弓器、箭速仪等核心设备，提供精准的器材调试服务</p>
+                
+                <div class="service-detail-cards">
+                    <!-- 复合弓调试 -->
+                    <div class="detail-card">
+                        <h3>复合弓调试</h3>
+                        
+                        <h4>基础调试</h4>
+                        <ul>
+                            <li>箭台/瞄准器基础调整</li>
+                            <li>磅数适配调整</li>
+                            <li>箭速测试与优化</li>
+                            <li>弓弦、缆绳更换</li>
+                        </ul>
+                        
+                        <h4>深度调试</h4>
+                        <ul>
+                            <li>凸轮同步精密校准</li>
+                            <li>窥孔位置优化定位</li>
+                            <li>瞄准器三轴精确校准</li>
+                            <li>凸轮系统保养维护</li>
+                        </ul>
+                    </div>
+
+                    <!-- 反曲弓调试 -->
+                    <div class="detail-card">
+                        <h3>反曲弓调试</h3>
+                        
+                        <h4>标准调试</h4>
+                        <ul>
+                            <li>配重（Tiller）精确调整</li>
+                            <li>搭箭点精准定位</li>
+                            <li>中轴线校正</li>
+                            <li>箭支匹配测试</li>
+                            <li>侧垫（Plunger）微调</li>
+                        </ul>
+                        
+                        <h4>赛事级调试</h4>
+                        <ul>
+                            <li>针对高水平竞技的个性化调整方案</li>
+                            <li>比赛状态优化</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 图片画廊 -->
+            <section class="gallery" id="courses">
+                <h2>场馆环境</h2>
+                <div class="gallery-grid">
+                    <!-- 箭道图片 1 -->
+                    <div class="gallery-item">
+                        <div class="image-placeholder">
+                            <span class="placeholder-text">箭道环境<br>推荐尺寸: 1200×900px<br>(4:3)</span>
+                        </div>
+                    </div>
+                    <!-- 箭道图片 2 -->
+                    <div class="gallery-item">
+                        <div class="image-placeholder">
+                            <span class="placeholder-text">30米标准箭道<br>推荐尺寸: 1200×900px<br>(4:3)</span>
+                        </div>
+                    </div>
+                    <!-- 箭道图片 3 -->
+                    <div class="gallery-item">
+                        <div class="image-placeholder">
+                            <span class="placeholder-text">专业靶位<br>推荐尺寸: 1200×900px<br>(4:3)</span>
+                        </div>
+                    </div>
+                    <!-- 器材室图片 1 -->
+                    <div class="gallery-item">
+                        <div class="image-placeholder">
+                            <span class="placeholder-text">器材展示区<br>推荐尺寸: 1200×900px<br>(4:3)</span>
+                        </div>
+                    </div>
+                    <!-- 器材室图片 2 -->
+                    <div class="gallery-item">
+                        <div class="image-placeholder">
+                            <span class="placeholder-text">调试工作台<br>推荐尺寸: 1200×900px<br>(4:3)</span>
+                        </div>
+                    </div>
+                    <!-- 器材室图片 3 -->
+                    <div class="gallery-item">
+                        <div class="image-placeholder">
+                            <span class="placeholder-text">专业器材室<br>推荐尺寸: 1200×900px<br>(4:3)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联系方式 -->
+            <section class="contact" id="contact">
+                <h2>联系我们</h2>
+                
+                <div class="contact-cards-wrapper">
+                    <!-- 旺角广场店 -->
+                    <div class="contact-card">
+                        <h3>旺角广场店 <span class="rating">⭐4.9分</span></h3>
+                        <div class="contact-info">
+                            <p>📍 北京市朝阳区湖光北街南湖中园130号楼底商地下二层</p>
+                            <p class="address-note">（旺角购物广场对面）</p>
+                            <p>📞 13683636747</p>
+                            <p>⏰ 周一至周日 10:00-22:00</p>
+                            <p>💰 人均消费：75元</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 万科时代中心店 -->
+                    <div class="contact-card">
+                        <h3>万科时代中心店 <span class="rating">⭐4.9分</span></h3>
+                        <div class="contact-info">
+                            <p>📍 北京市朝阳区望京街望京时代广场E座4236</p>
+                            <p>📞 13581677270</p>
+                            <p>⏰ 周一至周日 10:00-22:00</p>
+                            <p>💰 人均消费：78元</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary">预约体验</button>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>赛事活动</h3>
-                    <ul>
-                        <li><a href="#">查找赛事</a></li>
-                        <li><a href="#">全国锦标赛</a></li>
-                        <li><a href="#">竞赛规则</a></li>
-                        <li><a href="#">成绩与纪录</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>关于我们</h3>
-                    <ul>
-                        <li><a href="#">协会简介</a></li>
-                        <li><a href="#">组织架构</a></li>
-                        <li><a href="#">发展历史</a></li>
-                        <li><a href="#">常见问题</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>会员服务</h3>
-                    <ul>
-                        <li><a href="#">成为会员</a></li>
-                        <li><a href="#">俱乐部注册</a></li>
-                        <li><a href="#">会员权益</a></li>
-                        <li><a href="#">会费计算</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>参与互动</h3>
-                    <ul>
-                        <li><a href="#">新手指南</a></li>
-                        <li><a href="#">射箭项目</a></li>
-                        <li><a href="#">奖项计划</a></li>
-                        <li><a href="#">查找俱乐部</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="#">📘</a>
-                <a href="#">📷</a>
-                <a href="#">📺</a>
-                <a href="#">🐦</a>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 射箭吧 - 中国专业射箭协会. 保留所有权利.</p>
-                <p style="margin-top: 10px;">
-                    <a href="#" style="color: #999; margin: 0 10px;">隐私政策</a> | 
-                    <a href="#" style="color: #999; margin: 0 10px;">使用条款</a>
-                </p>
+                <p>🎯 射箭吧 · 北京望京专业射箭俱乐部</p>
+                <p class="footer-meta">创立于2013年 · 用心服务每一位弓箭爱好者</p>
+                <nav class="footer-links">
+                    <a href="#courses">课程咨询</a>
+                    <a href="#equipment">器材购买</a>
+                    <a href="#contact">联系我们</a>
+                </nav>
+                <p class="copyright">© 2024 射箭吧 All Rights Reserved</p>
             </div>
         </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
