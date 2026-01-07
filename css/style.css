@@ -224,8 +224,31 @@ body {
 
 .hero {
   text-align: center;
-  padding: var(--space-6) 0;
+  padding: var(--space-8) 0;
   margin-bottom: var(--space-6);
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.7) 100%);
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -642,6 +665,12 @@ body {
 
 .footer-links a:hover {
   color: var(--color-accent);
+}
+
+.icp-info {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
 }
 
 .copyright {
