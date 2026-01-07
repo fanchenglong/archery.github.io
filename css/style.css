@@ -435,6 +435,12 @@ body {
               border-color var(--transition-base);
 }
 
+.detail-card.in-view {
+  box-shadow: var(--shadow-glow-strong);
+  border-color: var(--color-accent);
+  animation: pulse-glow 2s ease-in-out;
+}
+
 .detail-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);

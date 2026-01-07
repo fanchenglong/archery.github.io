@@ -86,6 +86,11 @@ document.querySelector('.btn-primary')?.addEventListener('click', () => {
     observer.observe(card);
   });
 
+  // 观察器材调试详情卡片
+  document.querySelectorAll('.detail-card').forEach(card => {
+    observer.observe(card);
+  });
+
   // 观察其他可能需要发光效果的卡片
   document.querySelectorAll('.contact-card').forEach(card => {
     observer.observe(card);
